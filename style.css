@@ -1,0 +1,42 @@
+/* Custom Styles supplementing Tailwind */
+
+.bg-dark-pattern {
+    background-image: url('https://www.transparenttextures.com/patterns/dark-matter.png');
+}
+
+.text-shadow-red {
+    text-shadow: 2px 2px 0px #8a0b0b;
+}
+
+/* Animations spécifiques */
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+.cursor-blink {
+    animation: blink 1s step-end infinite;
+}
+
+/* Scrollbar personnalisée */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #111;
+}
+::-webkit-scrollbar-thumb {
+    background: #333;
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #8a0b0b;
+}
+
+/* Grille sur les barres de vie */
+.health-grid-overlay {
+    background-image: repeating-linear-gradient(90deg, transparent, transparent 19%, rgba(0,0,0,0.5) 20%);
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
