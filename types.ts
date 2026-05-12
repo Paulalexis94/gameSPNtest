@@ -1,34 +1,51 @@
-import React from 'react';
-
 export interface Item {
   id: string;
   name: string;
-  icon?: React.ReactNode;
   description: string;
+  lore?: string;
 }
 
 export interface Choice {
   text: string;
   nextSceneId: string;
-  requiredItem?: string; // ID of item required to choose this
-  removeItem?: string; // ID of item removed upon choosing
-  healthImpact?: number; // Negative for damage, positive for healing
+  requiredItem?: string;
+  removeItem?: string;
+  addItem?: string;
+  deanDamage?: number;
+  samDamage?: number;
+  healthImpact?: number; // legacy: appliqué à Dean
+  xpGain?: number;
+  addKnowledge?: string;
 }
+
+export type SceneArt =
+  | 'impala'
+  | 'research'
+  | 'asylum_exterior'
+  | 'dark_corridor'
+  | 'basement'
+  | 'ghost_encounter'
+  | 'demon'
+  | 'chapel'
+  | 'records'
+  | 'garden'
+  | 'ritual'
+  | 'victory'
+  | 'game_over';
 
 export interface Scene {
   id: string;
   title: string;
   text: string;
-  backgroundImage?: string;
+  sceneArt?: SceneArt;
   choices: Choice[];
 }
 
 export interface GameState {
   currentSceneId: string;
-  health: {
-    sam: number;
-    dean: number;
-  };
+  health: { sam: number; dean: number };
   inventory: Item[];
-  history: string[]; // Log of previous scene IDs
+  history: string[];
+  xp: number;
+  knowledge: string[];
 }

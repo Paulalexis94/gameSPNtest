@@ -1,3 +1,10 @@
-// Ce fichier n'est plus utilisé.
-// Le projet a été converti en Vanilla JS (voir index.html, style.css, script.js).
-console.log("Mode Vanilla JS activé.");
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import App from './App';
+import './style.css';
+
+ReactDOM.createRoot(document.getElementById('root')!).render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
